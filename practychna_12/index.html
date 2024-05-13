@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ПР-12</title>
+    </head>
+    <body>
+        <h1>Практична робота №12 Романюк Ярини Романівни </h1>
+        <!DOCTYPE html>
+
+    <form>
+        <label for="username">Ім’я користувача:</label>
+        <input type="text" id="username" name="username"><br><br>
+
+        <label for="email">Електронна пошта:</label>
+        <input type="email" id="email" name="email"><br><br>
+
+        <!--Радіокнопки-->
+        
+            <label>Оберіть прийоми їжі:</label><br>
+            <input type="radio" id="breakfast" name="meal" value="сніданок">
+            <label for="breakfast">Сніданок</label>
+            <input type="radio" id="lunch" name="meal" value="обід">
+            <label for="lunch">Обід</label>
+            <input type="radio" id="dinner" name="meal" value="вечерю">
+            <label for="dinner">Вечеря</label><br><br>
+            
+
+        <!--Прапорці-->
+        <label>Оберіть страви:</label><br>
+        <label><input type="checkbox" name="food" value="borscht"> Борщ</label><br>
+        <label><input type="checkbox" name="food" value="Вівсяна каша"> Вівсяна каша</label><br>
+        <label><input type="checkbox" name="food" value="Паста Болоньєзе"> Паста Болоньєзе</label><br>
+        <label><input type="checkbox" name="food" value="Піца"> Піца</label><br>
+        <label><input type="checkbox" name="food" value="Шашличьок"> Шашличьок</label><br>
+        <label><input type="checkbox" name="food" value="Булочка з сосіскою"> Булочка з сосіскою</label><br>
+        <label><input type="checkbox" name="food" value="Чай з бутербродом"> Чай з бутербродом</label><br>
+        <label><input type="checkbox" name="food" value="Пряники до чаю"> Пряники до чаю</label><br><br>
+        
+
+        <label for="comment">Коментар:</label><br>
+        <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br><br>
+
+        <button type="button" id="send">Надіслати</button>
+    </form>
+    <div id="output"></div>
+    <script src="js/script.js"></script>
+    </body>
+    
+</html>
