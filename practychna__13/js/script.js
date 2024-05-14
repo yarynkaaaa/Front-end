@@ -49,11 +49,11 @@ function startGame() {
         document.getElementById("timeLeft").textContent = timeLeft;
         if (timeLeft <= 0) {
             clearInterval(interval);
-            if (clicks < 20) {
+            if (clicks < 10) {
                 alert(`ОЙ лишенько( ${clicks} попадань. Це мало!`);
-            } else if (clicks >= 10 && clicks < 50) {
+            } else if (clicks >= 10 && clicks < 20) {
                 alert(`Ти можеш краще! ${clicks} попадань, продовжуй в тому ж дусі!`);
-            } else if (clicks >= 20 && clicks < 100) {
+            } else if (clicks >= 20 && clicks < 50) {
                 alert(`Чудовий результат! ${clicks} попадань`);
             } else if (clicks >= 50) {
                 alert(`It's amazing!!!ВАУ!: ${clicks} попадань!`);
