@@ -113,22 +113,22 @@ label {
     height: 50px;
 }
 .pink {
-    background-image: url("/pinkballon.png");
+
     background-size: cover;
 }
 
 .green {
-    background-image: url("/greenballon.png");
+   
     background-size: cover;
 }
 
 .blue {
-    background-image: url("/blueballon.png");
+  
     background-size: cover;
 }
 
 .red {
-    background-image: url("/redballon.png");
+   
     background-size: cover;
 }
 
