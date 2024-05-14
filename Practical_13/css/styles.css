@@ -1,16 +1,16 @@
 @font-face {
     font-family: piglet;
-    src: url("/fonts/Piglet.ttf") format("truetype");
+    src: url("./fonts/Piglet.ttf") format("truetype");
 }
 
 @font-face {
     font-family: pooh;
-    src: url("/fonts/pooh.ttf");
+    src: url("./fonts/pooh.ttf");
 }
 
 @font-face {
     font-family: disney;
-    src: url("/fonts/DisneyPark.ttf");
+    src: url("./fonts/DisneyPark.ttf");
 }
 h1 {
     margin-top: 5vw;
