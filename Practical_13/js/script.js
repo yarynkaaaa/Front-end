@@ -51,14 +51,14 @@ function startGame() {
         if (timeLeft <= 0) {
             clearInterval(interval);
             if (clicks < 20) {
-                alert(`Ха! Лише ${clicks} попадань. Лох!`);
+                alert(`ОЙ лишенько( ${clicks} попадань. Це мало!`);
             } else if (clicks >= 10 && clicks < 50) {
-                alert(`Ох ти ж йо! Та ну, ти шо, ${clicks} попадань?`);
+                alert(`Ти можеш краще! ${clicks} попадань, продовжуй в тому ж дусі!`);
             } else if (clicks >= 20 && clicks < 100) {
-                alert(`Міг би краще, але нехай, ти і так ще вчишся. У тебе ${clicks} попадань`);
-            } else if (clicks >= 100) {
+                alert(`Чудовий результат! ${clicks} попадань`);
+            } else if (clicks >= 50) {
                 alert(
-                    `Дозвольте потримаю ваше пиво! У вас, вельми-шановний ювелір: ${clicks} попадань!`
+                    `It's amazing!!!ВАУ!: ${clicks} попадань!`
                 );
             }
 
