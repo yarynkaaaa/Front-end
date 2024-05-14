@@ -35,7 +35,7 @@ function startGame() {
             break;
     }
 
-    target.src = `../ballon/${color}ballon.png`;
+    target.src = `./ballon/${color}ballon.png`;
 
     target.style.width = `${size}px`;
     target.style.height = `${size}px`;
