@@ -113,22 +113,22 @@ label {
     height: 50px;
 }
 .pink {
-    background-image: url("./../ballon/pinkballon.png");
+    background-image: url("./ballon/pinkballon.png");
     background-size: cover;
 }
 
 .green {
-    background-image: url("./../ballon/greenballon.png");
+    background-image: url("./ballon/greenballon.png");
     background-size: cover;
 }
 
 .blue {
-    background-image: url("./../ballon/blueballon.png");
+    background-image: url("./ballon/blueballon.png");
     background-size: cover;
 }
 
 .red {
-    background-image: url("./../ballon/redballon.png");
+    background-image: url("./ballon/redballon.png");
     background-size: cover;
 }
 
