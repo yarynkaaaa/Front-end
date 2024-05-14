@@ -1,0 +1,168 @@
+@font-face {
+    font-family: piglet;
+    src: url("./../fonts/Piglet.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: pooh;
+    src: url("./../fonts/pooh.ttf");
+}
+
+@font-face {
+    font-family: disney;
+    src: url("./../fonts/DisneyPark.ttf");}
+h1 {
+    margin-top: 5vw;
+    font-family: piglet;
+    text-align: center;
+    font-size: 70px;
+    color: #e29e00;
+}
+#game {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+#targetArea {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    cursor: pointer;
+}
+
+#target {
+    position: absolute;
+    cursor: pointer;
+    width: auto;
+    height: auto;
+}
+
+#scoreBoard {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.507);
+    border: 2px solid #e29e00;
+    border-radius: 15px;
+    width: 200px;
+    font-family: disney;
+    font-size: 2vw;
+}
+
+#scoreBoard span {
+    font-size: 30px;
+    display: inline-block;
+    margin-right: 20px;
+}
+.color {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+#startButton {
+    margin-top: 10px;
+    font-family: piglet;
+    height: 50px;
+    width: 150px;
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    color: #cc0505;
+    top: 50%;
+    background-color: #e29e00dd;
+    border: none;
+    border-radius: 45px;
+}
+body {
+    background: url(../jpg/fon1.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.knopochka {
+    justify-content: center;
+    align-items: center;
+}
+.flexim {
+    display: flex;
+}
+select {
+    font-family: monospace;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+}
+label {
+    font-family: pooh;
+    font-size: 28px;
+    padding-right: 10px;
+    color: #b10909;
+}
+.lazy {
+    width: 110px;
+    height: 110px;
+}
+
+.normal {
+    width: 70px;
+    height: 70px;
+}
+
+.hard {
+    width: 50px;
+    height: 50px;
+}
+.pink {
+    background-image: url("./../ballon/pinkballon.png");
+    background-size: cover;
+}
+
+.green {
+    background-image: url("./../ballon/greenballon.png");
+    background-size: cover;
+}
+
+.blue {
+    background-image: url("./../ballon/blueballon.png");
+    background-size: cover;
+}
+
+.red {
+    background-image: url("./../ballon/redballon.png");
+    background-size: cover;
+}
+
+.textable {
+    margin-top: 80px;
+    color: #cc0505;
+}
+.center_text {
+    text-align: center;
+}
+/* Приклад зроблення текстового блоку з результатами адаптивним */
+.textable {
+    margin-top: 5vw;
+    /* Респонсивний відступ від верхнього краю */
+    font-size: 2vw;
+    /* Респонсивний розмір шрифту */
+}
+
+/* Приклад зроблення текстового блоку з результатами адаптивним для мобільних пристроїв */
+@media only screen and (max-width: 600px) {
+    .textable {
+        margin-top: 2rem;
+        /* Зменшення відступу для малих екранів */
+        font-size: 1.5rem;
+        /* Зменшення розміру шрифту для малих екранів */
+    }
+}
+
+/* Приклад зроблення вибору складності та кольору адаптивним для мобільних пристроїв */
+@media only screen and (max-width: 600px) {
+    .d_c {
+        flex-direction: column;
+        /* Зміна напрямку flexbox для вертикального розташування */
+        align-items: center;
+        /* Вирівнювання по центру */
+    }
+}
