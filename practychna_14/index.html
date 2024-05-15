@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LightsOut</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" type="image/png" href="img/lampa.png" />
+</head>
+<body>
+    <div class="unit_game">
+        <h1>Lights Out</h1>
+        <div class="container">
+            <div class="new">
+                <button id="new-game-button">New Game</button>
+            </div>
+            <div>
+                <button id="restart-button">Restart</button>
+            </div>
+            <div id="gameBoard"></div>
+        </div>
+
+        <div id="scoreBoard">
+            <span>Target: <span id="minSteps">0</span></span>
+            <span>Moves: <span id="clicks">0</span></span>
+            <span>Time: <span id="timeLeft">0</span></span>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

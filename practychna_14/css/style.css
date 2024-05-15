@@ -1,0 +1,60 @@
+@font-face {
+    font-family: light;
+    src: url("./../fonts/light.otf");
+}
+body {
+    background: url("./../img/bglight.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+h1 {
+    font-family: light;
+    margin-top: 5vw;
+    text-align: center;
+    font-size: 55px;
+    color: #ffc15c;
+}
+#gameBoard {
+    display: grid;
+    grid-template-columns: repeat(5, 50px);
+    gap: 5px;
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    border: 1px solid #333;
+    cursor: pointer;
+}
+
+.cell.on {
+    background-color: yellow;
+}
+.container {
+    display: flex;
+    align-items: center;
+}
+.restart {
+    margin-right: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+#scoreBoard {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0);
+    border: 2px solid #e29e00;
+    border-radius: 15px;
+    width: 200px;
+    font-family: light;
+    font-size: 1vw;
+}
+
