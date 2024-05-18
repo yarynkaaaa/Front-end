@@ -734,7 +734,7 @@ header {
 
 .main_content {
     text-align: center;
-    padding: 20px;
+    padding: 0 auto;
 }
 
 .catalog-content {
