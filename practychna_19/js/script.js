@@ -1,4 +1,4 @@
-import './ajax-utils'
+import "./ajax-utils.js";
 // ------------------------------ 19 pr---------------------------------------
 let contentAjax = {};
 const snippetHomeHTML = "./snippet/home_snippet.html";
@@ -108,6 +108,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
     startSlideShow();
 });
-
-
-
