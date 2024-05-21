@@ -1,4 +1,4 @@
-import { sendGetRequest } from "./ajax-utils.js";
+import "./ajax-utils.js";
 
 (function (global) {
     let contentAjax = {};
@@ -20,7 +20,7 @@ import { sendGetRequest } from "./ajax-utils.js";
     function onDOMContentLoaded() {
         showLoading(containerAjaxSelector);
         setTimeout(function () {
-            sendGetRequest(
+            ajaxUtils.sendGetRequest(
                 snippetHomeHTML,
                 function (response) {
                     insertHTML(containerAjaxSelector, response);
@@ -83,6 +83,7 @@ import { sendGetRequest } from "./ajax-utils.js";
 
         if (!slides.length) return;
 
+        let currentSlideIndex = 0;
         let slideInterval;
 
         function goToSlide(index) {
