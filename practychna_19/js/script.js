@@ -1,9 +1,10 @@
-import "./ajax-utils.js";
-// ------------------------------ 19 pr---------------------------------------
+import { sendGetRequest } from "./ajax-utils.js";
+
 (function (global) {
     let contentAjax = {};
     const snippetHomeHTML = "./snippet/home_snippet.html";
     const containerAjaxSelector = ".context__container";
+    let currentSlideIndex = 0;
 
     function insertHTML(selector, html) {
         document.querySelector(selector).innerHTML = html;
@@ -11,15 +12,15 @@ import "./ajax-utils.js";
 
     function showLoading(selector) {
         document.querySelector(selector).innerHTML = `
-    <div class="loading_box">
-        <span class="loader"></span>
-    </div>`;
+        <div class="loading_box">
+            <span class="loader"></span>
+        </div>`;
     }
 
     function onDOMContentLoaded() {
         showLoading(containerAjaxSelector);
         setTimeout(function () {
-            ajaxUtils.sendGetRequest(
+            sendGetRequest(
                 snippetHomeHTML,
                 function (response) {
                     insertHTML(containerAjaxSelector, response);
@@ -31,51 +32,57 @@ import "./ajax-utils.js";
     }
 
     document.addEventListener("DOMContentLoaded", onDOMContentLoaded);
-    window.contentAjax = contentAjax;
+    global.contentAjax = contentAjax;
 
-    // -------------- мак дональдз бургер---------------
+    // -------------- Burger Menu Toggle ---------------
     document.addEventListener("DOMContentLoaded", function () {
         const burger = document.getElementById("hamburger_menu");
         const nav = document.querySelector(".navbar_content");
 
-        burger.addEventListener("click", function () {
-            burger.classList.toggle("active");
-            nav.classList.toggle("active");
-        });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        var burger = document.querySelector(".header__burger");
-        var main = document.querySelector(".main");
-        var navbarContent = document.querySelector(".navbar_content ul");
-        var isBurgerActive = false;
+        if (burger && nav) {
+            burger.addEventListener("click", function () {
+                burger.classList.toggle("active");
+                nav.classList.toggle("active");
+            });
+        }
 
-        burger.addEventListener("click", function () {
-            main.classList.toggle("main-push");
-            isBurgerActive = !isBurgerActive; // Змінюємо стан бургера при кожному кліку
+        const headerBurger = document.querySelector(".header__burger");
+        const main = document.querySelector(".main");
+        const navbarContent = document.querySelector(".navbar_content ul");
+        let isBurgerActive = false;
 
-            if (isBurgerActive) {
-                var homeIcon = document.createElement("li");
-                homeIcon.innerHTML =
-                    '<img class="header__icons" src="img/icons/home-heart-solid-24.png" alt="" /><a class="link-catalog" href="./index.html">Home</a>';
-                navbarContent.insertBefore(homeIcon, navbarContent.firstChild);
-            } else {
-                // Видаляємо іконку "Home", якщо бургер неактивний
-                var homeIcon = document.querySelector(".navbar_content ul li:first-child");
-                if (homeIcon) {
-                    navbarContent.removeChild(homeIcon);
+        if (headerBurger && main && navbarContent) {
+            headerBurger.addEventListener("click", function () {
+                main.classList.toggle("main-push");
+                isBurgerActive = !isBurgerActive;
+
+                if (isBurgerActive) {
+                    const homeIcon = document.createElement("li");
+                    homeIcon.innerHTML =
+                        '<img class="header__icons" src="img/icons/home-heart-solid-24.png" alt="" /><a class="link-catalog" href="./index.html">Home</a>';
+                    navbarContent.insertBefore(homeIcon, navbarContent.firstChild);
+                } else {
+                    const homeIcon = navbarContent.querySelector("li:first-child");
+                    if (homeIcon) {
+                        navbarContent.removeChild(homeIcon);
+                    }
                 }
-            }
-        });
+            });
+        }
     });
 
-    // --------------------- karusel------------------------------------------
+    // --------------------- Carousel -------------------------------
     document.addEventListener("DOMContentLoaded", function () {
         const slider = document.querySelector(".slider");
+        if (!slider) return;
+
         const sliderWrapper = slider.querySelector(".slider_wrapper");
         const poperedBtn = slider.querySelector(".popered_btn");
         const nextBtn = slider.querySelector(".next_btn");
         const slides = slider.querySelectorAll(".slide-card");
-        let currentSlideIndex = 0;
+
+        if (!slides.length) return;
+
         let slideInterval;
 
         function goToSlide(index) {
@@ -94,18 +101,20 @@ import "./ajax-utils.js";
             clearInterval(slideInterval);
         }
 
-        poperedBtn.addEventListener("click", () => {
-            stopSlideShow();
-            goToSlide(currentSlideIndex - 1);
-        });
+        if (poperedBtn && nextBtn) {
+            poperedBtn.addEventListener("click", () => {
+                stopSlideShow();
+                goToSlide(currentSlideIndex - 1);
+            });
 
-        nextBtn.addEventListener("click", () => {
-            stopSlideShow();
-            goToSlide(currentSlideIndex + 1);
-        });
+            nextBtn.addEventListener("click", () => {
+                stopSlideShow();
+                goToSlide(currentSlideIndex + 1);
+            });
 
-        slider.addEventListener("mouseenter", stopSlideShow);
-        slider.addEventListener("mouseleave", startSlideShow);
+            slider.addEventListener("mouseenter", stopSlideShow);
+            slider.addEventListener("mouseleave", startSlideShow);
+        }
 
         startSlideShow();
     });
