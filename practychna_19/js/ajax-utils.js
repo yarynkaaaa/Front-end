@@ -19,6 +19,21 @@
         request.send(null);
     };
 
+    ajaxUtils.sendPostRequest = function (
+        requestUrl,
+        requestBody,
+        responseHandler,
+        isJsonResponse
+    ) {
+        const request = getRequestObject();
+        request.onreadystatechange = function () {
+            handleResponse(request, responseHandler, isJsonResponse);
+        };
+        request.open("POST", requestUrl, true);
+        request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        request.send(requestBody);
+    };
+
     function handleResponse(request, responseHandler, isJsonResponse) {
         if (request.readyState === 4 && request.status === 200) {
             if (isJsonResponse === undefined) {
@@ -31,15 +46,6 @@
             }
         }
     }
-
-    ajaxUtils.sendPostRequest = function (requestUrl, requestBody, responseHandler) {
-        const request = getRequestObject();
-        request.onreadystatechange = function () {
-            handleResponse(request, responseHandler);
-        };
-        request.open("POST", requestUrl, true);
-        request.send(requestBody);
-    };
 
     global.ajaxUtils = ajaxUtils;
 })(window);
