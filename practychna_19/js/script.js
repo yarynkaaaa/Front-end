@@ -20,7 +20,7 @@ import { sendGetRequest } from "./ajax-utils.js";
     function onDOMContentLoaded() {
         showLoading(containerAjaxSelector);
         setTimeout(function () {
-            sendGetRequest(
+            ajaxUtils.sendGetRequest(
                 snippetHomeHTML,
                 function (response) {
                     insertHTML(containerAjaxSelector, response);
@@ -83,12 +83,17 @@ import { sendGetRequest } from "./ajax-utils.js";
 
         if (!slides.length) return;
 
+        let currentSlideIndex = 0;
         let slideInterval;
 
         function goToSlide(index) {
             slides[currentSlideIndex].style.display = "none";
             currentSlideIndex = (index + slides.length) % slides.length;
             slides[currentSlideIndex].style.display = "block";
+        }
+
+        function showSlides(index) {
+            goToSlide(index);
         }
 
         function startSlideShow() {
