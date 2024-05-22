@@ -4,7 +4,6 @@ import "./ajax-utils.js";
     let contentAjax = {};
     const snippetHomeHTML = "./snippet/home_snippet.html";
     const containerAjaxSelector = ".context__container";
-    let currentSlideIndex = 0;
 
     function insertHTML(selector, html) {
         document.querySelector(selector).innerHTML = html;
@@ -24,18 +23,17 @@ import "./ajax-utils.js";
                 snippetHomeHTML,
                 function (response) {
                     insertHTML(containerAjaxSelector, response);
-                    showSlides(currentSlideIndex);
+                    showSlides(0); // Виклик функції showSlides для першого слайду
                 },
                 false
             );
         }, 1800);
+
+        setupBurgerMenu();
+        setupCarousel();
     }
 
-    document.addEventListener("DOMContentLoaded", onDOMContentLoaded);
-    global.contentAjax = contentAjax;
-
-    // -------------- Burger Menu Toggle ---------------
-    document.addEventListener("DOMContentLoaded", function () {
+    function setupBurgerMenu() {
         const burger = document.getElementById("hamburger_menu");
         const nav = document.querySelector(".navbar_content");
 
@@ -69,14 +67,12 @@ import "./ajax-utils.js";
                 }
             });
         }
-    });
+    }
 
-    // --------------------- Carousel -------------------------------
-    document.addEventListener("DOMContentLoaded", function () {
+    function setupCarousel() {
         const slider = document.querySelector(".slider");
         if (!slider) return;
 
-        const sliderWrapper = slider.querySelector(".slider_wrapper");
         const poperedBtn = slider.querySelector(".popered_btn");
         const nextBtn = slider.querySelector(".next_btn");
         const slides = slider.querySelectorAll(".slide-card");
@@ -86,10 +82,15 @@ import "./ajax-utils.js";
         let currentSlideIndex = 0;
         let slideInterval;
 
+        function showSlides(index) {
+            slides.forEach((slide, i) => {
+                slide.style.display = i === index ? "block" : "none";
+            });
+        }
+
         function goToSlide(index) {
-            slides[currentSlideIndex].style.display = "none";
             currentSlideIndex = (index + slides.length) % slides.length;
-            slides[currentSlideIndex].style.display = "block";
+            showSlides(currentSlideIndex);
         }
 
         function startSlideShow() {
@@ -117,6 +118,10 @@ import "./ajax-utils.js";
             slider.addEventListener("mouseleave", startSlideShow);
         }
 
+        showSlides(currentSlideIndex); // Показати перший слайд при завантаженні
         startSlideShow();
-    });
+    }
+
+    document.addEventListener("DOMContentLoaded", onDOMContentLoaded);
+    global.contentAjax = contentAjax;
 })(window);
