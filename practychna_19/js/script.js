@@ -29,7 +29,7 @@ import "./ajax-utils.js";
                 },
                 false
             );
-        }, 2800);
+        }, 2000);
 
         // -------------- Burger Menu Toggle ---------------
         const burger = document.getElementById("hamburger_menu");
