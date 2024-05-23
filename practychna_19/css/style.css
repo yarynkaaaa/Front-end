@@ -546,7 +546,15 @@ header {
     width: 100%;
     height: auto;
 }
+css
+Копіювати код
+.slide-card {
+    display: none;
+}
 
+.slide-card.active {
+    display: block; /* or inline-block, depending on your layout */
+}
 .popered_btn,
 .next_btn {
     position: absolute;
