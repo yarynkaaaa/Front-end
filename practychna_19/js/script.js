@@ -13,8 +13,9 @@ import "./ajax-utils.js";
     function showLoading(selector) {
         document.querySelector(selector).innerHTML = `
         <div class="loading_box">
-            <span class="loader"></span>
-        </div>`;
+        <div class="circle"></div>
+        <div>Loading...</div>
+    </div>`;
     }
 
     function onDOMContentLoaded() {
@@ -28,7 +29,7 @@ import "./ajax-utils.js";
                 },
                 false
             );
-        }, 1800);
+        }, 3500);
 
         // -------------- Burger Menu Toggle ---------------
         const burger = document.getElementById("hamburger_menu");
