@@ -325,15 +325,15 @@ header {
 }
 
 .navbar_content ul > li:first-child {
-    background-image: url("./../img/icons/category-alt-solid-24.png");
+   
 }
 
 .navbar_content ul > li:nth-child(2) {
-    background-image: url("./../img/icons/info-square-solid-24.png");
+    
 }
 
 .navbar_content ul > li:last-child {
-    background-image: url("./../img/icons/award-solid-24.png");
+    
 }
 
 .header__icons {
