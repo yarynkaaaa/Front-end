@@ -1,28 +1,51 @@
-
 .loading_box {
-    width: 100px;
-    height: 20px;
-    background-color: #f0f0f04e;
-    border: 1px solid #323a84;
+    width: 75px;
+    height: 55px;
+    border: 1px solid #282343;
     position: relative;
-    overflow: hidden;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #282343;
+    text-align: center;
+    font-family: "Inter";
 }
 
-.load {
-    width: 0;
-    height: 100%;
-    background-color: #323a84;
+.circle {
+    width: 10px;
+    height: 10px;
+    background-color: #282343;
+    border-radius: 50%;
     position: absolute;
-    animation: progress 2s linear infinite;
+    animation: run 4s linear infinite;
 }
 
-@keyframes progress {
+@keyframes run {
     0% {
-        width: 0;
+        top: 0;
+        left: 0;
+    }
+
+    25% {
+        top: 0;
+        left: 65px;
+    }
+
+    50% {
+        top: 45px;
+        left: 65px;
+    }
+
+    75% {
+        top: 45px;
+        left: 0;
     }
 
     100% {
-        width: 100%;
+        top: 0;
+        left: 0;
     }
 }
