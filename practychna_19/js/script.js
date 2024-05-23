@@ -29,13 +29,8 @@ import "./ajax-utils.js";
                 false
             );
         }, 1800);
-    }
 
-    document.addEventListener("DOMContentLoaded", onDOMContentLoaded);
-    global.contentAjax = contentAjax;
-
-    // -------------- Burger Menu Toggle ---------------
-    document.addEventListener("DOMContentLoaded", function () {
+        // -------------- Burger Menu Toggle ---------------
         const burger = document.getElementById("hamburger_menu");
         const nav = document.querySelector(".navbar_content");
 
@@ -69,22 +64,17 @@ import "./ajax-utils.js";
                 }
             });
         }
-    });
 
-    // --------------------- Carousel -------------------------------
-    document.addEventListener("DOMContentLoaded", function () {
+        // --------------------- Carousel -------------------------------
         const slider = document.querySelector(".slider");
         if (!slider) return;
 
         const sliderWrapper = slider.querySelector(".slider_wrapper");
-        const poperedBtn = slider.querySelector(".popered_btn");
+        const prevBtn = slider.querySelector(".popered_btn");
         const nextBtn = slider.querySelector(".next_btn");
         const slides = slider.querySelectorAll(".slide-card");
 
         if (!slides.length) return;
-
-        let currentSlideIndex = 0;
-        let slideInterval;
 
         function goToSlide(index) {
             slides[currentSlideIndex].style.display = "none";
@@ -102,8 +92,8 @@ import "./ajax-utils.js";
             clearInterval(slideInterval);
         }
 
-        if (poperedBtn && nextBtn) {
-            poperedBtn.addEventListener("click", () => {
+        if (prevBtn && nextBtn) {
+            prevBtn.addEventListener("click", () => {
                 stopSlideShow();
                 goToSlide(currentSlideIndex - 1);
             });
@@ -118,5 +108,8 @@ import "./ajax-utils.js";
         }
 
         startSlideShow();
-    });
+    }
+
+    document.addEventListener("DOMContentLoaded", onDOMContentLoaded);
+    global.contentAjax = contentAjax;
 })(window);
